@@ -1,10 +1,7 @@
 package com.example.socialos;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-<<<<<<< Updated upstream
 import android.os.Bundle;
-=======
 import android.app.VoiceInteractor;
 import android.content.Context;
 import android.content.Intent;
@@ -14,20 +11,26 @@ import android.media.MediaTimestamp;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.content.Intent;
+import android.graphics.Camera;
+import android.hardware.camera2.CameraDevice;
+import android.media.MediaTimestamp;
+import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
->>>>>>> Stashed changes
 
-public class MainActivity extends AppCompatActivity {
+
+import java.io.File;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-<<<<<<< Updated upstream
-=======
         findViewById(R.id.bt_call).setOnClickListener(this);
         findViewById(R.id.bt_archives2).setOnClickListener(this);
         findViewById(R.id.bt_calculator).setOnClickListener(this);
@@ -49,11 +52,11 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View v){
         Intent intent;
         switch (v.getId()) {
-            case R.id.bt_call://German
+            case R.id.bt_call:
                 intent = new Intent(Intent.ACTION_DIAL);//realizar llamada
                 startActivity(intent);
                 break;
-            case R.id.bt_cam://German
+            case R.id.bt_cam:
                 intent = new Intent(
                         MediaStore.ACTION_IMAGE_CAPTURE);//iniciar camara
                 startActivity(intent);
@@ -120,7 +123,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
 
->>>>>>> Stashed changes
     }
     public static Intent openFacebook(Context cont){ //context para boton de facebook
         try{
