@@ -64,7 +64,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/expletus_sans_bold"
-                android:text="Mensaje de Texto"
                 android:text="Correo"
                 android:textSize="30sp" />
 
@@ -99,9 +98,11 @@
                 android:id="@+id/bt_facebook"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
                 android:fontFamily="@font/expletus_sans_bold"
                 android:onClick="onClick"
                 android:text="Facebook"
+                android:textColor="#FDF7F2F2"
                 android:textSize="30sp" />
 
             <Button
@@ -144,7 +145,6 @@
                 android:textSize="30sp" />
 
             <Button
-                android:id="@+id/bt_archives"
                 android:id="@+id/bt_archives2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -177,22 +177,6 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/expletus_sans_bold"
                 android:text="WIFI"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/bt_archives2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/expletus_sans_bold"
-                android:text="WIFI"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/bt_play_store"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/expletus_sans_bold"
-                android:text="GOOGLE PLAYSTORE"
                 android:textSize="30sp" />
 
         </LinearLayout>
