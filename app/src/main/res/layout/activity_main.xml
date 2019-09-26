@@ -22,7 +22,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="76dp"
                 android:background="@color/colorPrimary"
+                android:clickable="true"
                 android:fontFamily="@font/expletus_sans_bold"
+                android:onClick="onClick"
                 android:text="Llamar"
                 android:textColor="#FAF9F9"
                 android:textSize="30sp" />
@@ -31,7 +33,9 @@
                 android:id="@+id/bt_contact"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:clickable="true"
                 android:fontFamily="@font/expletus_sans_bold"
+                android:onClick="onClick"
                 android:text="Contactos"
                 android:textSize="30sp" />
 
@@ -56,6 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/expletus_sans_bold"
+                android:onClick="onClick"
                 android:text="Mensaje de Texto"
                 android:textSize="30sp" />
 
@@ -79,6 +84,7 @@
                 android:id="@+id/bt_cam"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:clickable="true"
                 android:fontFamily="@font/expletus_sans_bold"
                 android:text="Camara"
                 android:textSize="30sp" />
@@ -124,12 +130,29 @@
                 android:textSize="30sp" />
 
             <Button
-                android:id="@+id/bt_archives"
+                android:id="@+id/bt_wifi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/expletus_sans_bold"
+                android:text="WIFI"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/bt_archives2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/expletus_sans_bold"
                 android:text="Mis Archivos"
                 android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/bt_play_store"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/expletus_sans_bold"
+                android:text="GOOGLE PLAYSTORE"
+                android:textSize="30sp" />
+
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
