@@ -9,13 +9,13 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="174dp"
-        tools:layout_editor_absoluteY="267dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="174dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/bt_call"
@@ -37,22 +37,53 @@
                 android:fontFamily="@font/expletus_sans_bold"
                 android:onClick="onClick"
                 android:text="Contactos"
+                android:textColor="#FDFDFD"
                 android:textSize="30sp" />
 
             <Button
-                android:id="@+id/bt_menu"
+                android:id="@+id/bt_cam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:clickable="true"
+                android:fontFamily="@font/expletus_sans_bold"
+                android:text="Camara"
+                android:textColor="#F7F4F4"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/bt_calendar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/expletus_sans_bold"
-                android:text="Menu"
+                android:text="Calendario"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/bt_mail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/expletus_sans_bold"
+                android:text="Mensaje de Texto"
+                android:text="Correo"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/bt_calculator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/expletus_sans_bold"
+                android:text="Calculadora"
                 android:textSize="30sp" />
 
             <Button
                 android:id="@+id/bt_config"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
                 android:fontFamily="@font/expletus_sans_bold"
                 android:text="Configuracion"
+                android:textColor="#FFFEFE"
                 android:textSize="30sp" />
 
             <Button
@@ -65,68 +96,79 @@
                 android:textSize="30sp" />
 
             <Button
-                android:id="@+id/bt_watch"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/expletus_sans_bold"
-                android:text="Reloj"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/bt_calendar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/expletus_sans_bold"
-                android:text="Calendario"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/bt_cam"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:fontFamily="@font/expletus_sans_bold"
-                android:text="Camara"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/bt_img"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/expletus_sans_bold"
-                android:text="Imagenes"
-                android:textSize="30sp" />
-
-            <Button
                 android:id="@+id/bt_facebook"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/expletus_sans_bold"
+                android:onClick="onClick"
                 android:text="Facebook"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/bt_mail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/expletus_sans_bold"
-                android:text="Correo"
                 android:textSize="30sp" />
 
             <Button
                 android:id="@+id/bt_whatsapp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
                 android:fontFamily="@font/expletus_sans_bold"
+                android:onClick="onClick"
                 android:text="Whatsapp"
+                android:textColor="#FDF7F2F2"
                 android:textSize="30sp" />
 
             <Button
-                android:id="@+id/bt_calculator"
+                android:id="@+id/bt_img"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:fontFamily="@font/expletus_sans_bold"
+                android:text="Imagenes"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/bt_google"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:fontFamily="@font/expletus_sans_bold"
+                android:onClick="onClick"
+                android:text="GOOGLE"
+                android:textColor="#FDF7F2F2"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/bt_play_store"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/expletus_sans_bold"
-                android:text="Calculadora"
+                android:text="GOOGLE PLAYSTORE"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/bt_archives"
+                android:id="@+id/bt_archives2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/expletus_sans_bold"
+                android:text="Mis Archivos"
+                android:textSize="30sp" />
+          
+            <Button
+                android:id="@+id/bt_menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/expletus_sans_bold"
+                android:text="Menu"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/bt_watch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:fontFamily="@font/expletus_sans_bold"
+                android:onClick="onClick"
+                android:text="Reloj"
+                android:textColor="#FFFFFF"
                 android:textSize="30sp" />
 
             <Button
@@ -142,7 +184,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/expletus_sans_bold"
-                android:text="Mis Archivos"
+                android:text="WIFI"
                 android:textSize="30sp" />
 
             <Button

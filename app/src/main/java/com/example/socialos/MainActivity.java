@@ -1,7 +1,16 @@
 package com.example.socialos;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.os.Bundle;
+import android.app.VoiceInteractor;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Camera;
+import android.hardware.camera2.CameraDevice;
+import android.media.MediaTimestamp;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.content.Intent;
 import android.graphics.Camera;
 import android.hardware.camera2.CameraDevice;
@@ -12,6 +21,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+
 
 import java.io.File;
 
@@ -51,50 +61,81 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         MediaStore.ACTION_IMAGE_CAPTURE);//iniciar camara
                 startActivity(intent);
                 break;
-            case R.id.bt_calendar:
+            case R.id.bt_calendar://Carlos
               //  intent = new Intent(Intent);
                 //startActivity(intent);
                 break;
-            case R.id.bt_contact:
+            case R.id.bt_contact://german
                 intent = new Intent();
                 startActivity(intent);
                 break;
-            case R.id.bt_img:
+            case R.id.bt_img://Daniel
                 intent = new Intent();
                 startActivity(intent);
                 break;
-            case R.id.bt_archives2:
+            case R.id.bt_archives2://Carlos
                 intent = new Intent();
                 startActivity(intent);
                 break;
-            case R.id.bt_mail:
+            case R.id.bt_mail: //Daniel
                 intent = new Intent();
                 startActivity(intent);
                 break;
-            case R.id.bt_sms:
+            case R.id.bt_sms: //Carlos
                 intent = new Intent();
                 startActivity(intent);
                 break;
             case R.id.bt_watch:
-                intent = new Intent(Intent.ACTION_QUICK_CLOCK);//abrir conf reloj
+                intent = new Intent(Intent.ACTION_QUICK_CLOCK);//abrir conf reloj german
                 startActivity(intent);
                 break;
-            case R.id.bt_play_store:
+            case R.id.bt_play_store:// Carlos
                // intent = new Intent(Intent.);
                // startActivity(intent);
                 break;
-            case R.id.bt_config:
+            case R.id.bt_config: // Germán
                 intent = new Intent();
                 startActivity(intent);
                 break;
-            case R.id.bt_wifi:
+            case R.id.bt_wifi: //Daniel
                 intent = new Intent(Intent.ACTION_MANAGE_NETWORK_USAGE);//abrir conexiones
                 startActivity(intent);
                 break;
-            
+            case R.id.bt_google: //German
+                intent = new Intent(Intent.ACTION_VIEW,Uri.parse("https://www.google.com"));//abrir conexiones
+                startActivity(intent);
+                break;
+            case R.id.bt_facebook: //German
+                intent = openFacebook(MainActivity.this);
+                startActivity(intent);
+
+                break;
+            case R.id.bt_whatsapp://german
+                try{
+                intent  = getPackageManager().getLaunchIntentForPackage("com.whatsapp");
+                startActivity(intent);
+                }catch (Exception e){
+                    String url = "https://api.whatsapp.com/";
+                    intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse(url));
+                    startActivity(intent);
+                }
+                break;
+        }
+
+    }
+    public static Intent openFacebook(Context cont){ //context para boton de facebook
+        try{
+            cont.getPackageManager().getPackageInfo("com.facebook.katana",0);
+            return new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/"));
+
+        }catch (Exception e){
+            return  new Intent(Intent.ACTION_VIEW,Uri.parse("https://www.facebook.com/"));//abrir conexiones
 
         }
 
     }
+ }
 
-}
+
+
