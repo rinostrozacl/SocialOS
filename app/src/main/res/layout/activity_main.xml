@@ -154,7 +154,26 @@
                 android:text="GOOGLE"
                 android:textColor="#FDF7F2F2"
                 android:textSize="30sp" />
-          
+            <Button
+                android:id="@+id/bt_youtube"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:fontFamily="@font/expletus_sans_bold"
+                android:onClick="onClick"
+                android:text="Youtube"
+                android:textColor="#FDF7F2F2"
+                android:textSize="30sp" />
+            <Button
+                android:id="@+id/bt_maps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:fontFamily="@font/expletus_sans_bold"
+                android:onClick="onClick"
+                android:text="Google Maps"
+                android:textColor="#FDF7F2F2"
+                android:textSize="30sp" />
             <Button
                 android:id="@+id/bt_menu"
                 android:layout_width="match_parent"
@@ -195,6 +214,8 @@
                 android:id="@+id/bt_playstore"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:background="@color/colorPrimary"
                 android:fontFamily="@font/expletus_sans_bold"
                 android:text="Google PlayStore"
                 android:textSize="30sp" />

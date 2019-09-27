@@ -1,10 +1,13 @@
 package com.example.socialos;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ComponentName;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.icu.text.IDNA;
+import android.os.Build;
 import android.os.Bundle;
 import android.app.VoiceInteractor;
 import android.content.Context;
@@ -15,6 +18,7 @@ import android.media.MediaTimestamp;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.AlarmClock;
 import android.provider.ContactsContract;
 import android.content.Intent;
 import android.graphics.Camera;
@@ -31,6 +35,7 @@ import android.widget.Button;
 
 
 import java.io.File;
+import java.time.Clock;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -60,13 +65,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.bt_playstore).setOnClickListener(this);
 
     }
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onClick(View v){
 
         Intent intent;
         switch (v.getId()) {
             case R.id.bt_call:
-                intent = new Intent(Intent.ACTION_DIAL);//realizar llamada
+                intent = new Intent(Intent.ACTION_DIAL);//realizar llamada*
                 startActivity(intent);
                 break;
             case R.id.bt_cam:
@@ -79,39 +85,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.bt_contact://german
-                intent = new Intent();
-                startActivity(intent);
-                break;
+               /* try{
+                    intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.google.android.contacts"));
+                    startActivity(intent);
+                    break;}catch (Exception e){}*/break;
             case R.id.bt_img://Daniel
                 intent = new Intent (Intent.ACTION_VIEW, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
                 startActivity(intent);//ABRIR GALERIA DE FOTOS.
                 break;
 
             case R.id.bt_mail: //Daniel
-                    Intent indents = new Intent (Intent.ACTION_VIEW , Uri.parse("mailto:" + "ejemplo@gmail.com"));
-                indents.putExtra(Intent.EXTRA_SUBJECT, ":D");
-                indents.putExtra(Intent.EXTRA_TEXT, ":D");
-                    startActivity(indents);//abrir  Correo electronico.
+                startActivity(openGmail());
+                break;
             case R.id.bt_calculator: //Carlos
-                intent = new Intent();
-                intent.setAction(Intent.ACTION_MAIN);
-                intent.addCategory(Intent.CATEGORY_LAUNCHER);
-                intent.setComponent(new ComponentName(
-                        CALCULATOR_PACKAGE_NAME,
-                        CALCULATOR_CLASS_NAME));
-                startActivity(intent);
+                startActivity(openCalculator());
                 break;
             case R.id.bt_sms: //Carlos
                 intent = new Intent(Intent.ACTION_VIEW,Uri.parse("sms:"));
                 startActivity(intent);
                 break;
             case R.id.bt_watch:
-                intent = new Intent(Intent.ACTION_QUICK_CLOCK);//abrir conf reloj german
+                intent = new Intent();//abrir conf reloj german
                 startActivity(intent);
                 break;
-
             case R.id.bt_config: // Germán
-                intent = new Intent();
+                intent = new Intent(Settings.ACTION_SETTINGS);// rdy
                 startActivity(intent);
                 break;
             case R.id.bt_wifi: //Daniel
@@ -119,40 +117,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.bt_google: //German
-                intent = new Intent(Intent.ACTION_VIEW,Uri.parse("https://www.google.com"));//abrir conexiones
-                startActivity(intent);
+                startActivity(openChrome());
                 break;
             case R.id.bt_facebook: //German
                 intent = openFacebook(MainActivity.this);
                 startActivity(intent);
-
                 break;
             case R.id.bt_whatsapp://german
-                try{
-                intent  = getPackageManager().getLaunchIntentForPackage("com.whatsapp");
-                startActivity(intent);
-                }catch (Exception e){
-                    String url = "https://api.whatsapp.com/";
-                    intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse(url));
-                    startActivity(intent);
-                }
+                startActivity(openWhatsapp());
                 break;
             case R.id.bt_files://Carlos
-                intent = new Intent(getPackageManager().getLaunchIntentForPackage(" com.android.documentsui"));
+               /* intent = new Intent(getPackageManager().getLaunchIntentForPackage(" com.android.documentsui"));
                 intent.addCategory(Intent.CATEGORY_LAUNCHER);
-                break;
+                break;*/break;
             case R.id.bt_playstore://Carlos
-                try{
-                    intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.android.vending"));
-                    startActivity(intent);
+                startActivity(openPlaystore());
                 break;
-            }catch (Exception e){
-                String url = "https://play.google.com/";
-                intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(url));
-                startActivity(intent);
-            }
+            case R.id.bt_youtube: //german
+                startActivity(openYoutube());
+                break;
+            case R.id.bt_maps: //german
+                startActivity(openMaps());
+                break;
         }
 
     }
@@ -166,6 +152,74 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
+    }
+
+    public  Intent openWhatsapp(){
+        try{
+            Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.whatsapp"));
+            return (intent);
+        }catch (Exception e){
+            return new Intent (Intent.ACTION_VIEW,Uri.parse("https://api.whatsapp.com/"));
+
+        }
+
+    }
+    public  Intent openYoutube(){
+        try {
+            Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.google.android.youtube"));
+            return (intent);
+        }
+        catch (Exception e){
+
+            return new Intent (Intent.ACTION_VIEW,Uri.parse("https://youtube.com"));
+        }
+    }
+    public  Intent openMaps(){
+        try {
+            Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.google.android.apps.maps"));
+            return (intent);
+        }
+        catch (Exception e){
+
+            return new Intent (Intent.ACTION_VIEW,Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.maps&hl=es"));
+        }
+    }
+    public Intent openChrome(){
+        try{
+            Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.android.chrome"));//abrir conexiones
+            return(intent);
+        }catch (Exception e){
+            return new Intent (Intent.ACTION_VIEW,Uri.parse("https://play.google.com/store/apps/details?id=com.android.chrome&hl=es"));
+        }
+    }
+    public Intent openGmail(){
+        try{
+            Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.google.android.gm"));
+            return(intent);
+            }
+        catch (Exception e){
+            return new Intent (Intent.ACTION_VIEW,Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.gm&hl=es"));
+
+        }
+    }
+    public Intent openCalculator(){
+        try{
+            Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.google.android.calculator"));
+            return(intent);
+           }
+        catch (Exception e){
+            return new Intent (Intent.ACTION_VIEW,Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.calculator&hl=es"));
+
+        }
+    }
+    public Intent openPlaystore(){
+        try{
+            Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.android.vending"));
+            return(intent);
+        }catch (Exception e){
+            return new Intent (Intent.ACTION_VIEW,Uri.parse("https://play.google.com/"));
+
+        }
     }
  }
 
