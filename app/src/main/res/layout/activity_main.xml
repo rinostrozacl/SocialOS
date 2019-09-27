@@ -113,9 +113,11 @@
                 android:id="@+id/bt_facebook"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
                 android:fontFamily="@font/expletus_sans_bold"
                 android:onClick="onClick"
                 android:text="Facebook"
+                android:textColor="#FDF7F2F2"
                 android:textSize="30sp" />
 
             <Button
@@ -148,14 +150,6 @@
                 android:text="GOOGLE"
                 android:textColor="#FDF7F2F2"
                 android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/bt_archives"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/expletus_sans_bold"
-                android:text="Mis Archivos"
-                android:textSize="30sp" />
           
             <Button
                 android:id="@+id/bt_menu"
@@ -183,7 +177,6 @@
                 android:fontFamily="@font/expletus_sans_bold"
                 android:text="WIFI"
                 android:textSize="30sp" />
-
             <Button
                 android:id="@+id/bt_files"
                 android:layout_width="match_parent"
@@ -199,6 +192,7 @@
                 android:fontFamily="@font/expletus_sans_bold"
                 android:text="Google PlayStore"
                 android:textSize="30sp" />
+
 
         </LinearLayout>
     </ScrollView>
