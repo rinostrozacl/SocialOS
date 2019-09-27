@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ExpandableListView
+        android:id="@+id/list"
+        android:layout_width="wrap_content"
+        android:layout_height="100px"
+        tools:ignore="MissingConstraints" />
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -55,6 +62,9 @@
                 android:id="@+id/bt_calendar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:clickable="true"
+                android:textColor="#FFFEFE"
                 android:fontFamily="@font/expletus_sans_bold"
                 android:text="Calendario"
                 android:textSize="30sp" />
@@ -73,6 +83,9 @@
                 android:id="@+id/bt_calculator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:clickable="true"
+                android:textColor="#FFFEFE"
                 android:fontFamily="@font/expletus_sans_bold"
                 android:text="Calculadora"
                 android:textSize="30sp" />
@@ -91,8 +104,10 @@
                 android:id="@+id/bt_sms"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:textColor="#FFFEFE"
+                android:clickable="true"
                 android:fontFamily="@font/expletus_sans_bold"
-                android:onClick="onClick"
                 android:text="Mensaje de Texto"
                 android:textSize="30sp" />
 
@@ -139,22 +154,6 @@
                 android:text="GOOGLE"
                 android:textColor="#FDF7F2F2"
                 android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/bt_play_store"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/expletus_sans_bold"
-                android:text="GOOGLE PLAYSTORE"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/bt_archives2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/expletus_sans_bold"
-                android:text="Mis Archivos"
-                android:textSize="30sp" />
           
             <Button
                 android:id="@+id/bt_menu"
@@ -184,6 +183,22 @@
                 android:text="WIFI"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp" />
+            <Button
+                android:id="@+id/bt_files"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/expletus_sans_bold"
+                android:text="Archivos"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/bt_playstore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/expletus_sans_bold"
+                android:text="Google PlayStore"
+                android:textSize="30sp" />
+
 
         </LinearLayout>
     </ScrollView>
