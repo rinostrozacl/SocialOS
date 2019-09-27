@@ -1,6 +1,10 @@
 package com.example.socialos;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.ComponentName;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.app.VoiceInteractor;
 import android.content.Context;
@@ -10,6 +14,7 @@ import android.hardware.camera2.CameraDevice;
 import android.media.MediaTimestamp;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.ContactsContract;
 import android.content.Intent;
 import android.graphics.Camera;
@@ -18,21 +23,26 @@ import android.media.MediaTimestamp;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
 
 import java.io.File;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private static final String CALCULATOR_PACKAGE_NAME = "com.android.calculator2";
+    private static final String CALCULATOR_CLASS_NAME = "com.android.calculator2.Calculator";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViewById(R.id.bt_call).setOnClickListener(this);
-        findViewById(R.id.bt_archives2).setOnClickListener(this);
+        findViewById(R.id.bt_files).setOnClickListener(this);
         findViewById(R.id.bt_calculator).setOnClickListener(this);
         findViewById(R.id.bt_calendar).setOnClickListener(this);
         findViewById(R.id.bt_cam).setOnClickListener(this);
@@ -46,10 +56,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.bt_watch).setOnClickListener(this);
         findViewById(R.id.bt_whatsapp).setOnClickListener(this);
         findViewById(R.id.bt_wifi).setOnClickListener(this);
+        findViewById(R.id.bt_playstore).setOnClickListener(this);
 
     }
     @Override
     public void onClick(View v){
+
         Intent intent;
         switch (v.getId()) {
             case R.id.bt_call:
@@ -62,8 +74,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.bt_calendar://Carlos
-              //  intent = new Intent(Intent);
-                //startActivity(intent);
+                intent = new Intent(Intent.ACTION_VIEW,Uri.parse("content://com.android.calendar/time/"));
+                startActivity(intent);
                 break;
             case R.id.bt_contact://german
                 intent = new Intent();
@@ -73,26 +85,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent = new Intent();
                 startActivity(intent);
                 break;
-            case R.id.bt_archives2://Carlos
-                intent = new Intent();
-                startActivity(intent);
-                break;
+
             case R.id.bt_mail: //Daniel
                 intent = new Intent();
                 startActivity(intent);
                 break;
-            case R.id.bt_sms: //Carlos
+            case R.id.bt_calculator: //Carlos
                 intent = new Intent();
+                intent.setAction(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_LAUNCHER);
+                intent.setComponent(new ComponentName(
+                        CALCULATOR_PACKAGE_NAME,
+                        CALCULATOR_CLASS_NAME));
+                startActivity(intent);
+                break;
+            case R.id.bt_sms: //Carlos
+                intent = new Intent(Intent.ACTION_VIEW,Uri.parse("sms:"));
                 startActivity(intent);
                 break;
             case R.id.bt_watch:
                 intent = new Intent(Intent.ACTION_QUICK_CLOCK);//abrir conf reloj german
                 startActivity(intent);
                 break;
-            case R.id.bt_play_store:// Carlos
-               // intent = new Intent(Intent.);
-               // startActivity(intent);
-                break;
+
             case R.id.bt_config: // Germán
                 intent = new Intent();
                 startActivity(intent);
@@ -121,6 +136,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     startActivity(intent);
                 }
                 break;
+            case R.id.bt_files://Carlos
+                intent = new Intent(getPackageManager().getLaunchIntentForPackage(" com.android.documentsui"));
+                intent.addCategory(Intent.CATEGORY_LAUNCHER);
+                break;
+            case R.id.bt_playstore://Carlos
+                try{
+                    intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.android.vending"));
+                    startActivity(intent);
+                break;
+            }catch (Exception e){
+                String url = "https://play.google.com/";
+                intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
         }
 
     }
