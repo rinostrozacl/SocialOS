@@ -73,8 +73,10 @@
                 android:id="@+id/bt_mail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
                 android:fontFamily="@font/expletus_sans_bold"
                 android:text="Correo"
+                android:textColor="#FFFFFF"
                 android:textSize="30sp" />
 
             <Button
@@ -135,9 +137,11 @@
                 android:id="@+id/bt_img"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
                 android:clickable="true"
                 android:fontFamily="@font/expletus_sans_bold"
                 android:text="Imagenes"
+                android:textColor="#FFFFFF"
                 android:textSize="30sp" />
 
             <Button
@@ -174,8 +178,10 @@
                 android:id="@+id/bt_wifi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
                 android:fontFamily="@font/expletus_sans_bold"
                 android:text="WIFI"
+                android:textColor="#FFFFFF"
                 android:textSize="30sp" />
             <Button
                 android:id="@+id/bt_files"
