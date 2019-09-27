@@ -18,6 +18,7 @@ import android.media.MediaTimestamp;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -70,16 +71,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.bt_img://Daniel
-                intent = new Intent();
-                startActivity(intent);
+                intent = new Intent (Intent.ACTION_VIEW, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                startActivity(intent);//ABRIR GALERIA DE FOTOS.
                 break;
             case R.id.bt_archives2://Carlos
                 intent = new Intent();
                 startActivity(intent);
                 break;
             case R.id.bt_mail: //Daniel
-                intent = new Intent();
-                startActivity(intent);
+                    Intent indents = new Intent (Intent.ACTION_VIEW , Uri.parse("mailto:" + "ejemplo@gmail.com"));
+                indents.putExtra(Intent.EXTRA_SUBJECT, ":D");
+                indents.putExtra(Intent.EXTRA_TEXT, ":D");
+                    startActivity(indents);//abrir  Correo electronico.
                 break;
             case R.id.bt_sms: //Carlos
                 intent = new Intent();
@@ -98,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.bt_wifi: //Daniel
-                intent = new Intent(Intent.ACTION_MANAGE_NETWORK_USAGE);//abrir conexiones
+                intent = new Intent(Settings.ACTION_WIFI_SETTINGS);//ABRIR CONFIGURACION DE WIFI
                 startActivity(intent);
                 break;
             case R.id.bt_google: //German
