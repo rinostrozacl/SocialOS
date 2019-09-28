@@ -44,7 +44,8 @@
                 android:fontFamily="@font/expletus_sans_bold"
                 android:onClick="onClick"
                 android:text="Contactos"
-                android:textColor="#FDFDFD"
+                android:background="@color/colorPrimary"
+                android:textColor="#FAF9F9"
                 android:textSize="30sp" />
 
             <Button
@@ -189,7 +190,7 @@
                 android:background="@color/colorPrimary"
                 android:fontFamily="@font/expletus_sans_bold"
                 android:onClick="onClick"
-                android:text="Reloj"
+                android:text="Alarmas"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp" />
 
@@ -208,6 +209,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/expletus_sans_bold"
                 android:text="Archivos"
+                android:background="@color/colorPrimary"
+                android:textColor="#FFFFFF"
                 android:textSize="30sp" />
 
             <Button
