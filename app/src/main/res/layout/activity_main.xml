@@ -66,6 +66,7 @@
                 android:clickable="true"
                 android:textColor="#FFFEFE"
                 android:fontFamily="@font/expletus_sans_bold"
+                android:layout_margin="5px"
                 android:text="Calendario"
                 android:textSize="30sp" />
 
@@ -87,6 +88,7 @@
                 android:clickable="true"
                 android:textColor="#FFFEFE"
                 android:fontFamily="@font/expletus_sans_bold"
+                android:layout_margin="5px"
                 android:text="Calculadora"
                 android:textSize="30sp" />
 
@@ -108,6 +110,7 @@
                 android:textColor="#FFFEFE"
                 android:clickable="true"
                 android:fontFamily="@font/expletus_sans_bold"
+                android:layout_margin="5px"
                 android:text="Mensaje de Texto"
                 android:textSize="30sp" />
 
@@ -154,6 +157,7 @@
                 android:text="GOOGLE"
                 android:textColor="#FDF7F2F2"
                 android:textSize="30sp" />
+
             <Button
                 android:id="@+id/bt_youtube"
                 android:layout_width="match_parent"
@@ -164,6 +168,7 @@
                 android:text="Youtube"
                 android:textColor="#FDF7F2F2"
                 android:textSize="30sp" />
+
             <Button
                 android:id="@+id/bt_maps"
                 android:layout_width="match_parent"
@@ -174,6 +179,7 @@
                 android:text="Google Maps"
                 android:textColor="#FDF7F2F2"
                 android:textSize="30sp" />
+
             <Button
                 android:id="@+id/bt_menu"
                 android:layout_width="match_parent"
@@ -202,11 +208,13 @@
                 android:text="WIFI"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp" />
+
             <Button
                 android:id="@+id/bt_files"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/expletus_sans_bold"
+                android:layout_margin="5px"
                 android:text="Archivos"
                 android:textSize="30sp" />
 
@@ -217,6 +225,7 @@
                 android:textColor="#FFFFFF"
                 android:background="@color/colorPrimary"
                 android:fontFamily="@font/expletus_sans_bold"
+                android:layout_margin="5px"
                 android:text="Google PlayStore"
                 android:textSize="30sp" />
 

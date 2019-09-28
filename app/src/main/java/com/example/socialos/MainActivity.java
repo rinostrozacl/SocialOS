@@ -127,9 +127,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(openWhatsapp());
                 break;
             case R.id.bt_files://Carlos
-               /* intent = new Intent(getPackageManager().getLaunchIntentForPackage(" com.android.documentsui"));
-                intent.addCategory(Intent.CATEGORY_LAUNCHER);
-                break;*/break;
+                intent = openFiles();
+                startActivity(intent);
+                break;
             case R.id.bt_playstore://Carlos
                 startActivity(openPlaystore());
                 break;
@@ -142,6 +142,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
+
+    public Intent openFiles() {
+        try {
+            Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.sec.android.app.myfiles.PICK_DATA"));
+            return intent;
+        } catch (Exception e) {
+            return new Intent (Intent.ACTION_VIEW,Uri.parse("https://play.google.com/store/apps/details?id=com.mauriciotogneri.fileexplorer"));
+        }
+    }
+
     public static Intent openFacebook(Context cont){ //context para boton de facebook
         try{
             cont.getPackageManager().getPackageInfo("com.facebook.katana",0);
