@@ -19,6 +19,8 @@ import android.media.MediaTimestamp;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.SystemClock;
+import android.os.storage.StorageManager;
 import android.provider.AlarmClock;
 import android.provider.ContactsContract;
 import android.content.Intent;
@@ -34,6 +36,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 import java.io.File;
@@ -86,10 +89,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.bt_contact://german
-               /* try{
-                    intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.google.android.contacts"));
-                    startActivity(intent);
-                    break;}catch (Exception e){}*/break;
+               // intent = new Intent(Intent.ACTION_VIEW,Uri.parse("content://contacts"));
+                startActivity(openContacts());
+               break;
             case R.id.bt_img://Daniel
                 intent = new Intent (Intent.ACTION_VIEW, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
                 startActivity(intent);//ABRIR GALERIA DE FOTOS.
@@ -106,8 +108,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.bt_watch:
-                intent = new Intent();//abrir conf reloj german
-                startActivity(intent);
+                startActivity(opeAlarm());
                 break;
             case R.id.bt_config: // Germán
                 intent = new Intent(Settings.ACTION_SETTINGS);// rdy
@@ -121,8 +122,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(openChrome());
                 break;
             case R.id.bt_facebook: //German
-                intent = openFacebook(MainActivity.this);
-                startActivity(intent);
+                startActivity(openFacebook());
                 break;
             case R.id.bt_whatsapp://german
                 startActivity(openWhatsapp());
@@ -142,12 +142,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
-    public static Intent openFacebook(Context cont){ //context para boton de facebook
+    public  Intent openFacebook(){ //context para boton de facebook
         try{
-            cont.getPackageManager().getPackageInfo("com.facebook.katana",0);
-            return new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/"));
+            Intent intent= new Intent(getPackageManager().getLaunchIntentForPackage("com.facebook.katana"));
+            return (intent);
 
         }catch (Exception e){
+            Toast.makeText(MainActivity.this, "Redirigiendo",Toast.LENGTH_SHORT).show();
             return  new Intent(Intent.ACTION_VIEW,Uri.parse("https://www.facebook.com/"));//abrir conexiones
 
         }
@@ -159,7 +160,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.whatsapp"));
             return (intent);
         }catch (Exception e){
-            return new Intent (Intent.ACTION_VIEW,Uri.parse("https://api.whatsapp.com/"));
+            Toast.makeText(MainActivity.this, "Redirigiendo",Toast.LENGTH_SHORT).show();
+            return new Intent (Intent.ACTION_VIEW,Uri.parse("https://play.google.com/store/apps/details?id=com.whatsapp&hl=es"));
 
         }
 
@@ -170,7 +172,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return (intent);
         }
         catch (Exception e){
-
+            Toast.makeText(MainActivity.this, "Redirigiendo",Toast.LENGTH_SHORT).show();
             return new Intent (Intent.ACTION_VIEW,Uri.parse("https://youtube.com"));
         }
     }
@@ -180,7 +182,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return (intent);
         }
         catch (Exception e){
-
+            Toast.makeText(MainActivity.this, "Redirigiendo",Toast.LENGTH_SHORT).show();
             return new Intent (Intent.ACTION_VIEW,Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.maps&hl=es"));
         }
     }
@@ -189,6 +191,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.android.chrome"));//abrir conexiones
             return(intent);
         }catch (Exception e){
+            Toast.makeText(MainActivity.this, "Redirigiendo",Toast.LENGTH_SHORT).show();
             return new Intent (Intent.ACTION_VIEW,Uri.parse("https://play.google.com/store/apps/details?id=com.android.chrome&hl=es"));
         }
     }
@@ -198,6 +201,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return(intent);
             }
         catch (Exception e){
+            Toast.makeText(MainActivity.this, "Redirigiendo",Toast.LENGTH_SHORT).show();
             return new Intent (Intent.ACTION_VIEW,Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.gm&hl=es"));
 
         }
@@ -208,6 +212,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return(intent);
            }
         catch (Exception e){
+            Toast.makeText(MainActivity.this, "Redirigiendo",Toast.LENGTH_SHORT).show();
             return new Intent (Intent.ACTION_VIEW,Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.calculator&hl=es"));
 
         }
@@ -217,6 +222,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.android.vending"));
             return(intent);
         }catch (Exception e){
+            Toast.makeText(MainActivity.this, "Redirigiendo",Toast.LENGTH_SHORT).show();
             return new Intent (Intent.ACTION_VIEW,Uri.parse("https://play.google.com/"));
 
         }
@@ -227,8 +233,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.google.android.apps.nbu.files"));
             return(intent);
         }catch (Exception e){
+            Toast.makeText(MainActivity.this, "Redirigiendo",Toast.LENGTH_SHORT).show();
             return new Intent (Intent.ACTION_VIEW,Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.nbu.files&hl=es"));
 
+        }
+    }
+
+    public Intent  openContacts(){
+        try{
+            Toast.makeText(MainActivity.this, "Abriendo Contactos",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("content://contacts/people"));
+            return(intent);
+        }catch (Exception e){
+             return null;
+
+        }
+    }
+    public Intent  opeAlarm() {
+        try {
+            Toast.makeText(MainActivity.this, "Abriendo Alarmas",Toast.LENGTH_SHORT).show();
+            Intent openClockIntent = new Intent(AlarmClock.ACTION_SHOW_ALARMS);
+            openClockIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            return (openClockIntent);
+        }catch (Exception e){
+            Toast.makeText(MainActivity.this, "No se pudo abrir la aplicacion",Toast.LENGTH_SHORT).show();
+            return null;
         }
     }
  }
