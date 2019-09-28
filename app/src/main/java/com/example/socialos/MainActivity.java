@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ComponentName;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.hardware.camera2.CameraManager;
 import android.icu.text.IDNA;
 import android.os.Build;
 import android.os.Bundle;
@@ -77,8 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.bt_cam:
-                intent = new Intent(
-                        MediaStore.ACTION_IMAGE_CAPTURE);//iniciar camara
+                intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE_SECURE);
                 startActivity(intent);
                 break;
             case R.id.bt_calendar://Carlos
