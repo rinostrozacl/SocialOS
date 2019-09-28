@@ -26,6 +26,7 @@ import android.hardware.camera2.CameraDevice;
 import android.media.MediaTimestamp;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.util.Log;
@@ -127,9 +128,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(openWhatsapp());
                 break;
             case R.id.bt_files://Carlos
-               /* intent = new Intent(getPackageManager().getLaunchIntentForPackage(" com.android.documentsui"));
-                intent.addCategory(Intent.CATEGORY_LAUNCHER);
-                break;*/break;
+                startActivity(openFiles());
+                break;
             case R.id.bt_playstore://Carlos
                 startActivity(openPlaystore());
                 break;
@@ -218,6 +218,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return(intent);
         }catch (Exception e){
             return new Intent (Intent.ACTION_VIEW,Uri.parse("https://play.google.com/"));
+
+        }
+    }
+
+    public Intent openFiles(){
+        try{
+            Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.google.android.apps.nbu.files"));
+            return(intent);
+        }catch (Exception e){
+            return new Intent (Intent.ACTION_VIEW,Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.nbu.files&hl=es"));
 
         }
     }
