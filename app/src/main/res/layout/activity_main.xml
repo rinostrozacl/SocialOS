@@ -175,13 +175,6 @@
                 android:text="Google Maps"
                 android:textColor="#FDF7F2F2"
                 android:textSize="30sp" />
-            <Button
-                android:id="@+id/bt_menu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/expletus_sans_bold"
-                android:text="Menu"
-                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/bt_watch"
