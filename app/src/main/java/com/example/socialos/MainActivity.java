@@ -1,57 +1,25 @@
 package com.example.socialos;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import android.provider.AlarmClock;
+import android.provider.MediaStore;
+import android.provider.Settings;
+import android.view.View;
+import android.widget.Toast;
+
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ComponentName;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.hardware.camera2.CameraManager;
-import android.icu.text.IDNA;
-import android.os.Build;
-import android.os.Bundle;
-import android.app.VoiceInteractor;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Camera;
-import android.hardware.camera2.CameraDevice;
-import android.media.MediaTimestamp;
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.Environment;
-import android.os.SystemClock;
-import android.os.storage.StorageManager;
-import android.provider.AlarmClock;
-import android.provider.ContactsContract;
-import android.content.Intent;
-import android.graphics.Camera;
-import android.hardware.camera2.CameraDevice;
-import android.media.MediaTimestamp;
-import android.net.Uri;
-import android.os.Bundle;
-import android.provider.DocumentsContract;
-import android.provider.MediaStore;
-import android.provider.Settings;
-import android.util.Log;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.Toast;
-
-
-import java.io.File;
-import java.time.Clock;
-import java.util.List;
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
-    private static final String CALCULATOR_PACKAGE_NAME = "com.android.calculator2";
-    private static final String CALCULATOR_CLASS_NAME = "com.android.calculator2.Calculator";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         findViewById(R.id.bt_call).setOnClickListener(this);
         findViewById(R.id.bt_files).setOnClickListener(this);
         findViewById(R.id.bt_calculator).setOnClickListener(this);
@@ -62,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.bt_facebook).setOnClickListener(this);
         findViewById(R.id.bt_img).setOnClickListener(this);
         findViewById(R.id.bt_mail).setOnClickListener(this);
-        findViewById(R.id.bt_menu).setOnClickListener(this);
         findViewById(R.id.bt_sms).setOnClickListener(this);
         findViewById(R.id.bt_watch).setOnClickListener(this);
         findViewById(R.id.bt_whatsapp).setOnClickListener(this);
@@ -89,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.bt_contact://german
-               // intent = new Intent(Intent.ACTION_VIEW,Uri.parse("content://contacts"));
                 startActivity(openContacts());
                break;
             case R.id.bt_img://Daniel
