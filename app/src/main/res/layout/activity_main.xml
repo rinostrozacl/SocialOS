@@ -25,27 +25,37 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/bt_call"
+                android:id="@+id/app_list"
                 android:layout_width="match_parent"
                 android:layout_height="76dp"
                 android:background="@color/colorPrimary"
                 android:clickable="true"
                 android:fontFamily="@font/expletus_sans_bold"
-                android:onClick="onClick"
-                android:text="Llamar"
+                android:onClick="openApps"
+                android:text="Aplicaciones"
                 android:textColor="#FAF9F9"
                 android:textSize="30sp" />
 
             <Button
-                android:id="@+id/bt_contact"
+                android:id="@+id/bt_calculator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
                 android:clickable="true"
                 android:fontFamily="@font/expletus_sans_bold"
-                android:onClick="onClick"
-                android:text="Contactos"
+                android:text="Calculadora"
+                android:textColor="#FFFEFE"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/bt_calendar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
-                android:textColor="#FAF9F9"
+                android:clickable="true"
+                android:fontFamily="@font/expletus_sans_bold"
+                android:text="Calendario"
+                android:textColor="#FFFEFE"
                 android:textSize="30sp" />
 
             <Button
@@ -60,14 +70,15 @@
                 android:textSize="30sp" />
 
             <Button
-                android:id="@+id/bt_calendar"
+                android:id="@+id/bt_contact"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:clickable="true"
-                android:textColor="#FFFEFE"
                 android:fontFamily="@font/expletus_sans_bold"
-                android:text="Calendario"
+                android:onClick="onClick"
+                android:text="Contactos"
+                android:textColor="#FAF9F9"
                 android:textSize="30sp" />
 
             <Button
@@ -81,14 +92,15 @@
                 android:textSize="30sp" />
 
             <Button
-                android:id="@+id/bt_calculator"
+                android:id="@+id/bt_call"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="76dp"
                 android:background="@color/colorPrimary"
                 android:clickable="true"
-                android:textColor="#FFFEFE"
                 android:fontFamily="@font/expletus_sans_bold"
-                android:text="Calculadora"
+                android:onClick="onClick"
+                android:text="Llamar"
+                android:textColor="#FAF9F9"
                 android:textSize="30sp" />
 
             <Button

@@ -108,6 +108,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
+
+    public void  openApps(View view){
+        try{
+            Intent intent = new Intent(this, AppListActivity.class);
+             startActivity(intent);
+        }
+        catch (Exception e){
+            Toast.makeText(MainActivity.this, "Ha Ocurrido un Error",Toast.LENGTH_SHORT).show();
+           // new Intent(Intent.ACTION_DOCK_EVENT);//abrir conexiones
+        }
+    }
+
     public  Intent openFacebook(){ //context para boton de facebook
         try{
             Intent intent= new Intent(getPackageManager().getLaunchIntentForPackage("com.facebook.katana"));
@@ -132,6 +144,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
+
     public  Intent openYoutube(){
         try {
             Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.google.android.youtube"));
@@ -142,6 +155,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return new Intent (Intent.ACTION_VIEW,Uri.parse("https://youtube.com"));
         }
     }
+
     public  Intent openMaps(){
         try {
             Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.google.android.apps.maps"));
@@ -152,6 +166,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return new Intent (Intent.ACTION_VIEW,Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.maps&hl=es"));
         }
     }
+
     public Intent openChrome(){
         try{
             Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.android.chrome"));//abrir conexiones
@@ -161,6 +176,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return new Intent (Intent.ACTION_VIEW,Uri.parse("https://play.google.com/store/apps/details?id=com.android.chrome&hl=es"));
         }
     }
+
     public Intent openGmail(){
         try{
             Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.google.android.gm"));
@@ -172,6 +188,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
     }
+
     public Intent openCalculator(){
         try{
             Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.google.android.calculator"));
@@ -183,6 +200,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
     }
+
     public Intent openPlaystore(){
         try{
             Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.android.vending"));
@@ -215,6 +233,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
     }
+
     public Intent  opeAlarm() {
         try {
             Toast.makeText(MainActivity.this, "Abriendo Alarmas",Toast.LENGTH_SHORT).show();
