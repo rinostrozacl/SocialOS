@@ -3,20 +3,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp">
+
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
         android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        />
+        android:layout_centerVertical="true" />
+
     <TextView
         android:id="@+id/label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/icon"
+        android:fontFamily="sans-serif"
         android:paddingLeft="10dp"
-        />
+        android:textColor="#F2FFFFFF"
+        android:textSize="24sp" />
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
@@ -25,7 +28,5 @@
         android:layout_toRightOf="@+id/icon"
         android:paddingLeft="10dp"
         />
-
-
 
 </RelativeLayout>

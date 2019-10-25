@@ -18,7 +18,7 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AppListActivity extends Activity {
+public  class AppListActivity extends Activity {
     private PackageManager manager;
     private List<AppInfo> apps;
     private ListView list;
@@ -66,17 +66,10 @@ public abstract class AppListActivity extends Activity {
                 viewHolderItem.name.setText(appInfo.packageName);
 
             }
-
-
-            return convertView; }
-
-        final class ViewHolderItem {
-            ImageView icon;
-            TextView label;
-            TextView name;
-
-
+            return convertView;
         }
+
+
     }; list.setAdapter(adapter);
 }
 
@@ -95,6 +88,13 @@ public abstract class AppListActivity extends Activity {
 
             apps.add(appInfo);
         }
+
+    }
+    final class ViewHolderItem {
+        ImageView icon;
+        TextView label;
+        TextView name;
+
 
     }
 }
