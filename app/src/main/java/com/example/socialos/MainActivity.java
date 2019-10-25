@@ -105,10 +105,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.bt_maps: //german
                 startActivity(openMaps());
                 break;
-            case R.id.app_list: //german
-                 intent = new Intent(this, AppListActivity.class);
-                startActivity(intent);
-                break;
         }
 
     }
