@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "825340771871",
+    "firebase_url": "https://socialos.firebaseio.com",
+    "project_id": "socialos",
+    "storage_bucket": "socialos.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:825340771871:android:ebb556cb84210bb5ad9f2a",
+        "android_client_info": {
+          "package_name": "com.example.socialos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "825340771871-pvf9q067o4hp98b615gchf7li312jou5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA9k_LHo-fZ6HPpYPcOtIDk8uaZ9uzfEQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "825340771871-pvf9q067o4hp98b615gchf7li312jou5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
