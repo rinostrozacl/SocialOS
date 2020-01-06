@@ -1,5 +1,6 @@
 package com.example.socialos;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.bt_whatsapp).setOnClickListener(this);
         findViewById(R.id.bt_wifi).setOnClickListener(this);
         findViewById(R.id.bt_playstore).setOnClickListener(this);
+        findViewById(R.id.bt_chat).setOnClickListener(this);
 
     }
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -52,14 +54,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.bt_calendar://Carlos
-                intent = new Intent(Intent.ACTION_VIEW,Uri.parse("content://com.android.calendar/time/"));
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("content://com.android.calendar/time/"));
                 startActivity(intent);
                 break;
             case R.id.bt_contact://german
                 startActivity(openContacts());
-               break;
+                break;
             case R.id.bt_img://Daniel
-                intent = new Intent (Intent.ACTION_VIEW, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                intent = new Intent(Intent.ACTION_VIEW, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
                 startActivity(intent);//ABRIR GALERIA DE FOTOS.
                 break;
 
@@ -70,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(openCalculator());
                 break;
             case R.id.bt_sms: //Carlos
-                intent = new Intent(Intent.ACTION_VIEW,Uri.parse("sms:"));
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:"));
                 startActivity(intent);
                 break;
             case R.id.bt_watch:
@@ -105,7 +107,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.bt_maps: //german
                 startActivity(openMaps());
                 break;
+
+            case R.id.bt_chat: //daniel
+
+                try {
+                    Intent ListSong = new Intent(getApplicationContext(), Login.class);
+                    startActivity(ListSong);
+
+
+                } catch (Exception e) {
+                    if (e.getCause() instanceof ActivityNotFoundException) {
+                        throw (ActivityNotFoundException) e.getCause();
+                    }
+                    e.printStackTrace();
+                }
         }
+
 
     }
 
