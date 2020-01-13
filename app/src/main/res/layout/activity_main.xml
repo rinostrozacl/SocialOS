@@ -7,7 +7,6 @@
     tools:context=".MainActivity">
 
     <ExpandableListView
-        android:id="@+id/list"
         android:layout_width="wrap_content"
         android:layout_height="100px"
         tools:ignore="MissingConstraints" />
