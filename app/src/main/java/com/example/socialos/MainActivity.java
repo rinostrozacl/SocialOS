@@ -13,7 +13,6 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.socialos.ui.login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
