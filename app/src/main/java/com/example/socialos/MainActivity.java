@@ -1,6 +1,5 @@
 package com.example.socialos;
 
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -14,13 +13,14 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.socialos.ui.login.LoginActivity;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         findViewById(R.id.bt_call).setOnClickListener(this);
         findViewById(R.id.bt_files).setOnClickListener(this);
         findViewById(R.id.bt_calculator).setOnClickListener(this);
@@ -107,20 +107,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.bt_maps: //german
                 startActivity(openMaps());
                 break;
-
-            case R.id.bt_chat: //daniel
-
-                try {
-                    Intent ListSong = new Intent(getApplicationContext(), Login.class);
-                    startActivity(ListSong);
-
-
-                } catch (Exception e) {
-                    if (e.getCause() instanceof ActivityNotFoundException) {
-                        throw (ActivityNotFoundException) e.getCause();
-                    }
-                    e.printStackTrace();
-                }
+            case R.id.bt_chat://Daniel
+                Intent intent2 = new Intent (v.getContext(), LoginActivity.class);
+                startActivityForResult(intent2, 0);
         }
 
 
