@@ -69,10 +69,9 @@ public class MainActivityChat extends AppCompatActivity {
         super.onStart();
 
         if (currentUser == null){
-            //SendUserToLoginActivity();
+            SendUserToLoginActivity();
         } else {
             VerifyUserExistance();
-
         }
     }
 
