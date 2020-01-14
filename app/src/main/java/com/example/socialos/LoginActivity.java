@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.socialos.chatcomunal.MainActivityChat;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -56,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
             @SuppressLint("ShowToast")
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    startActivity(new Intent(LoginActivity.this, Chat.class));
+                    startActivity(new Intent(LoginActivity.this, MainActivityChat.class));
                     finish();
                 } else {
                     Toast.makeText(LoginActivity.this, "No se pudo iniciar Sesion", Toast.LENGTH_LONG).show();
