@@ -70,7 +70,6 @@ public class MainActivityChat extends AppCompatActivity {
             SendUserToLoginActivity();
         } else {
             VerifyUserExistance();
-
         }
     }
 
