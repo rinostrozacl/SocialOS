@@ -13,8 +13,11 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.socialos.chatcomunal.MainActivityChat;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +40,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.bt_playstore).setOnClickListener(this);
         findViewById(R.id.bt_chat).setOnClickListener(this);
 
+
     }
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
-    public void onClick(View v){
+    public void onClick(View v) {
 
         Intent intent;
         switch (v.getId()) {
@@ -107,150 +112,145 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(openMaps());
                 break;
             case R.id.bt_chat://Daniel
-                Intent intent2 = new Intent (v.getContext(), LoginActivity.class);
+                Intent intent2 = new Intent(v.getContext(), MainActivityChat.class);
                 startActivityForResult(intent2, 0);
         }
 
 
     }
 
-    public void  openApps(View view){
-        try{
+    public void openApps(View view) {
+        try {
             Intent intent = new Intent(this, AppListActivity.class);
-             startActivity(intent);
-        }
-        catch (Exception e){
-            Toast.makeText(MainActivity.this, "Ha Ocurrido un Error",Toast.LENGTH_SHORT).show();
-           // new Intent(Intent.ACTION_DOCK_EVENT);//abrir conexiones
+            startActivity(intent);
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this, "Ha Ocurrido un Error", Toast.LENGTH_SHORT).show();
+            // new Intent(Intent.ACTION_DOCK_EVENT);//abrir conexiones
         }
     }
 
-    public  Intent openFacebook(){ //context para boton de facebook
-        try{
-            Intent intent= new Intent(getPackageManager().getLaunchIntentForPackage("com.facebook.katana"));
+    public Intent openFacebook() { //context para boton de facebook
+        try {
+            Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.facebook.katana"));
             return (intent);
 
-        }catch (Exception e){
-            Toast.makeText(MainActivity.this, "Redirigiendo",Toast.LENGTH_SHORT).show();
-            return  new Intent(Intent.ACTION_VIEW,Uri.parse("https://www.facebook.com/"));//abrir conexiones
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this, "Redirigiendo", Toast.LENGTH_SHORT).show();
+            return new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/"));//abrir conexiones
 
         }
 
     }
 
-    public  Intent openWhatsapp(){
-        try{
+    public Intent openWhatsapp() {
+        try {
             Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.whatsapp"));
             return (intent);
-        }catch (Exception e){
-            Toast.makeText(MainActivity.this, "Redirigiendo",Toast.LENGTH_SHORT).show();
-            return new Intent (Intent.ACTION_VIEW,Uri.parse("https://play.google.com/store/apps/details?id=com.whatsapp&hl=es"));
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this, "Redirigiendo", Toast.LENGTH_SHORT).show();
+            return new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.whatsapp&hl=es"));
 
         }
 
     }
 
-    public  Intent openYoutube(){
+    public Intent openYoutube() {
         try {
             Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.google.android.youtube"));
             return (intent);
-        }
-        catch (Exception e){
-            Toast.makeText(MainActivity.this, "Redirigiendo",Toast.LENGTH_SHORT).show();
-            return new Intent (Intent.ACTION_VIEW,Uri.parse("https://youtube.com"));
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this, "Redirigiendo", Toast.LENGTH_SHORT).show();
+            return new Intent(Intent.ACTION_VIEW, Uri.parse("https://youtube.com"));
         }
     }
 
-    public  Intent openMaps(){
+    public Intent openMaps() {
         try {
             Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.google.android.apps.maps"));
             return (intent);
-        }
-        catch (Exception e){
-            Toast.makeText(MainActivity.this, "Redirigiendo",Toast.LENGTH_SHORT).show();
-            return new Intent (Intent.ACTION_VIEW,Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.maps&hl=es"));
-        }
-    }
-
-    public Intent openChrome(){
-        try{
-            Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.android.chrome"));//abrir conexiones
-            return(intent);
-        }catch (Exception e){
-            Toast.makeText(MainActivity.this, "Redirigiendo",Toast.LENGTH_SHORT).show();
-            return new Intent (Intent.ACTION_VIEW,Uri.parse("https://play.google.com/store/apps/details?id=com.android.chrome&hl=es"));
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this, "Redirigiendo", Toast.LENGTH_SHORT).show();
+            return new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.maps&hl=es"));
         }
     }
 
-    public Intent openGmail(){
-        try{
-            Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.google.android.gm"));
-            return(intent);
-            }
-        catch (Exception e){
-            Toast.makeText(MainActivity.this, "Redirigiendo",Toast.LENGTH_SHORT).show();
-            return new Intent (Intent.ACTION_VIEW,Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.gm&hl=es"));
-
-        }
-    }
-
-    public Intent openCalculator(){
-        try{
-            Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.google.android.calculator"));
-            return(intent);
-           }
-        catch (Exception e){
-            Toast.makeText(MainActivity.this, "Redirigiendo",Toast.LENGTH_SHORT).show();
-            return new Intent (Intent.ACTION_VIEW,Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.calculator&hl=es"));
-
-        }
-    }
-
-    public Intent openPlaystore(){
-        try{
-            Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.android.vending"));
-            return(intent);
-        }catch (Exception e){
-            Toast.makeText(MainActivity.this, "Redirigiendo",Toast.LENGTH_SHORT).show();
-            return new Intent (Intent.ACTION_VIEW,Uri.parse("https://play.google.com/"));
-
-        }
-    }
-
-    public Intent openFiles(){
-        try{
-            Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.google.android.apps.nbu.files"));
-            return(intent);
-        }catch (Exception e){
-            Toast.makeText(MainActivity.this, "Redirigiendo",Toast.LENGTH_SHORT).show();
-            return new Intent (Intent.ACTION_VIEW,Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.nbu.files&hl=es"));
-
-        }
-    }
-
-    public Intent  openContacts(){
-        try{
-            Toast.makeText(MainActivity.this, "Abriendo Contactos",Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("content://contacts/people"));
-            return(intent);
-        }catch (Exception e){
-             return null;
-
-        }
-    }
-
-    public Intent  opeAlarm() {
+    public Intent openChrome() {
         try {
-            Toast.makeText(MainActivity.this, "Abriendo Alarmas",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.android.chrome"));//abrir conexiones
+            return (intent);
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this, "Redirigiendo", Toast.LENGTH_SHORT).show();
+            return new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.android.chrome&hl=es"));
+        }
+    }
+
+    public Intent openGmail() {
+        try {
+            Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.google.android.gm"));
+            return (intent);
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this, "Redirigiendo", Toast.LENGTH_SHORT).show();
+            return new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.gm&hl=es"));
+
+        }
+    }
+
+    public Intent openCalculator() {
+        try {
+            Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.google.android.calculator"));
+            return (intent);
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this, "Redirigiendo", Toast.LENGTH_SHORT).show();
+            return new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.calculator&hl=es"));
+
+        }
+    }
+
+    public Intent openPlaystore() {
+        try {
+            Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.android.vending"));
+            return (intent);
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this, "Redirigiendo", Toast.LENGTH_SHORT).show();
+            return new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/"));
+
+        }
+    }
+
+    public Intent openFiles() {
+        try {
+            Intent intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.google.android.apps.nbu.files"));
+            return (intent);
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this, "Redirigiendo", Toast.LENGTH_SHORT).show();
+            return new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.nbu.files&hl=es"));
+
+        }
+    }
+
+    public Intent openContacts() {
+        try {
+            Toast.makeText(MainActivity.this, "Abriendo Contactos", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("content://contacts/people"));
+            return (intent);
+        } catch (Exception e) {
+            return null;
+
+        }
+    }
+
+    public Intent opeAlarm() {
+        try {
+            Toast.makeText(MainActivity.this, "Abriendo Alarmas", Toast.LENGTH_SHORT).show();
             Intent openClockIntent = new Intent(AlarmClock.ACTION_SHOW_ALARMS);
             openClockIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             return (openClockIntent);
-        }catch (Exception e){
-            Toast.makeText(MainActivity.this, "No se pudo abrir la aplicacion",Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this, "No se pudo abrir la aplicacion", Toast.LENGTH_SHORT).show();
             return null;
         }
     }
- }
+}
 
 
 
