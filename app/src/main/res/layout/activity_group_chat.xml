@@ -38,7 +38,8 @@
                 android:padding="10dp"
                 android:textAllCaps="false"
                 android:textColor="@android:color/background_dark"
-                android:textSize="18sp">
+                android:textSize="24sp"
+                android:textStyle="bold">
 
             </TextView>
 

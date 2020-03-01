@@ -1,6 +1,7 @@
 package com.example.socialos;
 
 import android.content.Intent;
+import android.graphics.Camera;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -9,7 +10,7 @@ import android.provider.MediaStore;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.Toast;
-
+import android.hardware.camera2.CameraManager;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,21 +25,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViewById(R.id.bt_call).setOnClickListener(this);
-        findViewById(R.id.bt_files).setOnClickListener(this);
+      //  findViewById(R.id.bt_files).setOnClickListener(this);
         findViewById(R.id.bt_calculator).setOnClickListener(this);
         findViewById(R.id.bt_calendar).setOnClickListener(this);
         findViewById(R.id.bt_cam).setOnClickListener(this);
         findViewById(R.id.bt_config).setOnClickListener(this);
-        findViewById(R.id.bt_contact).setOnClickListener(this);
+      //  findViewById(R.id.bt_contact).setOnClickListener(this);
         findViewById(R.id.bt_facebook).setOnClickListener(this);
         findViewById(R.id.bt_img).setOnClickListener(this);
-        findViewById(R.id.bt_mail).setOnClickListener(this);
+      //  findViewById(R.id.bt_mail).setOnClickListener(this);
         findViewById(R.id.bt_sms).setOnClickListener(this);
         findViewById(R.id.bt_watch).setOnClickListener(this);
         findViewById(R.id.bt_whatsapp).setOnClickListener(this);
         findViewById(R.id.bt_wifi).setOnClickListener(this);
-        findViewById(R.id.bt_playstore).setOnClickListener(this);
-        findViewById(R.id.bt_chat).setOnClickListener(this);
+       // findViewById(R.id.bt_playstore).setOnClickListener(this);
+        //findViewById(R.id.bt_chat).setOnClickListener(this);
 
 
     }
@@ -54,23 +55,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.bt_cam:
-                intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE_SECURE);
-                startActivity(intent);
+                startActivity(openCam());
                 break;
             case R.id.bt_calendar://Carlos
                 intent = new Intent(Intent.ACTION_VIEW, Uri.parse("content://com.android.calendar/time/"));
                 startActivity(intent);
                 break;
-            case R.id.bt_contact://german
-                startActivity(openContacts());
-                break;
             case R.id.bt_img://Daniel
                 intent = new Intent(Intent.ACTION_VIEW, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
                 startActivity(intent);//ABRIR GALERIA DE FOTOS.
-                break;
-
-            case R.id.bt_mail: //Daniel
-                startActivity(openGmail());
                 break;
             case R.id.bt_calculator: //Carlos
                 startActivity(openCalculator());
@@ -80,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.bt_watch:
-                startActivity(opeAlarm());
+                startActivity(openAlarm());
                 break;
             case R.id.bt_config: // Germán
                 intent = new Intent(Settings.ACTION_SETTINGS);// rdy
@@ -99,18 +92,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.bt_whatsapp://german
                 startActivity(openWhatsapp());
                 break;
-            case R.id.bt_files://Carlos
-                startActivity(openFiles());
-                break;
-            case R.id.bt_playstore://Carlos
-                startActivity(openPlaystore());
-                break;
             case R.id.bt_youtube: //german
                 startActivity(openYoutube());
                 break;
-            case R.id.bt_maps: //german
-                startActivity(openMaps());
-                break;
+
             case R.id.bt_chat://Daniel
                 Intent intent2 = new Intent(v.getContext(), MainActivityChat.class);
                 startActivityForResult(intent2, 0);
@@ -118,6 +103,57 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
+
+    private Intent openCamHuawei() {
+        Intent intent, intent2;
+        try{
+             intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.huawei.camera"));
+
+            if(intent != null){
+                return intent;
+            }else{
+                return null;
+            }
+        }catch (Exception e){
+           // Toast.makeText(MainActivity.this, "No se ha podido acceder a la camara del dispositivo", Toast.LENGTH_SHORT).show();
+        }return null;
+    }
+    private Intent openCamNokia() {
+        Intent intent, intent2;
+        try{
+            intent = new Intent(getPackageManager().getLaunchIntentForPackage("com.hmdglobal.camera2lite"));
+
+            if(intent != null){
+                return intent;
+            }else{
+                return null;
+            }
+        }catch (Exception e){
+           // Toast.makeText(MainActivity.this, "No se ha podido acceder a la camara del dispositivo", Toast.LENGTH_SHORT).show();
+        }return null;
+    }
+
+    private Intent openCam(){
+
+        try{
+            if(openCamHuawei() != null && openCamNokia() == null){
+                return openCamHuawei();
+
+            }else{
+                if(openCamHuawei() == null && openCamNokia() != null){
+                    return openCamNokia();
+
+                }else{
+                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE_SECURE);
+                    return intent;
+                }
+            }
+        }catch (Exception e){
+            Toast.makeText(MainActivity.this, "No se ha podido acceder a la camara del dispositivo", Toast.LENGTH_SHORT).show();
+        }return null;
+    }
+
+
 
     public void openApps(View view) {
         try {
@@ -239,7 +275,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public Intent opeAlarm() {
+    public Intent openAlarm() {
         try {
             Toast.makeText(MainActivity.this, "Abriendo Alarmas", Toast.LENGTH_SHORT).show();
             Intent openClockIntent = new Intent(AlarmClock.ACTION_SHOW_ALARMS);
@@ -250,6 +286,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return null;
         }
     }
+
+
 }
 
 

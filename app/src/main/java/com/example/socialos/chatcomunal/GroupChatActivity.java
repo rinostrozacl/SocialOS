@@ -32,7 +32,7 @@ import java.util.Iterator;
 
 public class GroupChatActivity extends AppCompatActivity {
 
-    private androidx.appcompat.widget.Toolbar mToolbar;
+    private Toolbar mToolbar;
     private ImageButton sendMessageButton;
     private EditText userMessageInput;
     private ScrollView mScrollView;
