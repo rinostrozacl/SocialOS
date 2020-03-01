@@ -16,17 +16,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/icon"
-        android:fontFamily="sans-serif"
+        android:fontFamily="@font/expletus_sans_bold"
         android:paddingLeft="10dp"
         android:textColor="#F2FFFFFF"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/label"
         android:layout_toRightOf="@+id/icon"
+        android:fontFamily="@font/expletus_sans_bold"
         android:paddingLeft="10dp"
-        />
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

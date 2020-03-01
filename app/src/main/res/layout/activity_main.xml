@@ -4,34 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorAccent"
     tools:context=".MainActivity">
 
     <ExpandableListView
-        android:layout_width="wrap_content"
-        android:layout_height="100px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="textStart"
         tools:ignore="MissingConstraints" />
 
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="174dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/app_list"
                 android:layout_width="match_parent"
-                android:layout_height="76dp"
+                android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:clickable="true"
-                android:fontFamily="@font/expletus_sans_bold"
+                android:fontFamily="sans-serif-black"
                 android:onClick="openApps"
                 android:text="Aplicaciones"
+                android:textAlignment="textStart"
                 android:textColor="#FAF9F9"
                 android:textSize="30sp" />
 
@@ -41,8 +45,10 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:clickable="true"
-                android:fontFamily="@font/expletus_sans_bold"
+                android:fontFamily="sans-serif-black"
+                android:onClick="onClick"
                 android:text="Calculadora"
+                android:textAlignment="textStart"
                 android:textColor="#FFFEFE"
                 android:textSize="30sp" />
 
@@ -52,8 +58,10 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:clickable="true"
-                android:fontFamily="@font/expletus_sans_bold"
-                android:text="Calendario"
+                android:fontFamily="sans-serif-black"
+                android:onClick="onClick"
+                android:text="calendario"
+                android:textAlignment="textStart"
                 android:textColor="#FFFEFE"
                 android:textSize="30sp" />
 
@@ -63,43 +71,23 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:clickable="true"
-                android:fontFamily="@font/expletus_sans_bold"
-                android:text="Camara"
+                android:fontFamily="sans-serif-black"
+                android:onClick="onClick"
+                android:text="Camara fotografica"
+                android:textAlignment="textStart"
                 android:textColor="#F7F4F4"
                 android:textSize="30sp" />
 
             <Button
-                android:id="@+id/bt_contact"
+                android:id="@+id/bt_wifi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
-                android:clickable="true"
-                android:fontFamily="@font/expletus_sans_bold"
+                android:fontFamily="sans-serif-black"
                 android:onClick="onClick"
-                android:text="Contactos"
-                android:textColor="#FAF9F9"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/bt_mail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
-                android:fontFamily="@font/expletus_sans_bold"
-                android:text="Correo"
+                android:text="CONECTAR WIFI"
+                android:textAlignment="textStart"
                 android:textColor="#FFFFFF"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/bt_call"
-                android:layout_width="match_parent"
-                android:layout_height="76dp"
-                android:background="@color/colorPrimary"
-                android:clickable="true"
-                android:fontFamily="@font/expletus_sans_bold"
-                android:onClick="onClick"
-                android:text="Llamar"
-                android:textColor="#FAF9F9"
                 android:textSize="30sp" />
 
             <Button
@@ -107,8 +95,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
-                android:fontFamily="@font/expletus_sans_bold"
-                android:text="Configuracion"
+                android:fontFamily="sans-serif-black"
+                android:onClick="onClick"
+                android:text="Configuraciones"
+                android:textAlignment="textStart"
                 android:textColor="#FFFEFE"
                 android:textSize="30sp" />
 
@@ -117,10 +107,37 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
-                android:textColor="#FFFEFE"
                 android:clickable="true"
-                android:fontFamily="@font/expletus_sans_bold"
+                android:fontFamily="sans-serif-black"
+                android:onClick="onClick"
                 android:text="Mensaje de Texto"
+                android:textAlignment="textStart"
+                android:textColor="#FFFEFE"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/bt_call"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:clickable="true"
+                android:fontFamily="sans-serif-black"
+                android:onClick="onClick"
+                android:text="realizar llamada"
+                android:textAlignment="textStart"
+                android:textColor="#FAF9F9"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/bt_google"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:fontFamily="sans-serif-black"
+                android:onClick="onClick"
+                android:text="INTERNET GOOGLE"
+                android:textAlignment="textStart"
+                android:textColor="#FDF7F2F2"
                 android:textSize="30sp" />
 
             <Button
@@ -128,9 +145,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
-                android:fontFamily="@font/expletus_sans_bold"
+                android:fontFamily="sans-serif-black"
                 android:onClick="onClick"
                 android:text="Facebook"
+                android:textAlignment="textStart"
                 android:textColor="#FDF7F2F2"
                 android:textSize="30sp" />
 
@@ -139,9 +157,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
-                android:fontFamily="@font/expletus_sans_bold"
+                android:fontFamily="sans-serif-black"
                 android:onClick="onClick"
                 android:text="Whatsapp"
+                android:textAlignment="textStart"
+                android:textColor="#FDF7F2F2"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/bt_youtube"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:fontFamily="sans-serif-black"
+                android:onClick="onClick"
+                android:text="Youtube VIDEOS"
+                android:textAlignment="textStart"
                 android:textColor="#FDF7F2F2"
                 android:textSize="30sp" />
 
@@ -151,40 +182,11 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:clickable="true"
-                android:fontFamily="@font/expletus_sans_bold"
-                android:text="Imagenes"
+                android:fontFamily="sans-serif-black"
+                android:onClick="onClick"
+                android:text="GALERIA IMAGENES"
+                android:textAlignment="textStart"
                 android:textColor="#FFFFFF"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/bt_google"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
-                android:fontFamily="@font/expletus_sans_bold"
-                android:onClick="onClick"
-                android:text="GOOGLE"
-                android:textColor="#FDF7F2F2"
-                android:textSize="30sp" />
-            <Button
-                android:id="@+id/bt_youtube"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
-                android:fontFamily="@font/expletus_sans_bold"
-                android:onClick="onClick"
-                android:text="Youtube"
-                android:textColor="#FDF7F2F2"
-                android:textSize="30sp" />
-            <Button
-                android:id="@+id/bt_maps"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
-                android:fontFamily="@font/expletus_sans_bold"
-                android:onClick="onClick"
-                android:text="Google Maps"
-                android:textColor="#FDF7F2F2"
                 android:textSize="30sp" />
 
             <Button
@@ -192,51 +194,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
-                android:fontFamily="@font/expletus_sans_bold"
+                android:fontFamily="sans-serif-black"
                 android:onClick="onClick"
-                android:text="Alarmas"
+                android:text="RELOJ Y ALARMA"
+                android:textAlignment="textStart"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/bt_wifi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
-                android:fontFamily="@font/expletus_sans_bold"
-                android:text="WIFI"
-                android:textColor="#FFFFFF"
-                android:textSize="30sp" />
-            <Button
-                android:id="@+id/bt_files"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/expletus_sans_bold"
-                android:text="Archivos"
-                android:background="@color/colorPrimary"
-                android:textColor="#FFFFFF"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/bt_playstore"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#FFFFFF"
-                android:background="@color/colorPrimary"
-                android:fontFamily="@font/expletus_sans_bold"
-                android:text="Google PlayStore"
-                android:textSize="30sp" />
-
 
             <Button
                 android:id="@+id/bt_chat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#FFFFFF"
                 android:background="@color/colorPrimary"
-                android:fontFamily="@font/expletus_sans_bold"
-                android:text="chat comunal"
+                android:fontFamily="sans-serif-black"
+                android:onClick="onClick"
+                android:text="Chat comunal"
+                android:textAlignment="textStart"
+                android:textColor="#FFFFFF"
                 android:textSize="30sp" />
+
+
+            />
 
         </LinearLayout>
     </ScrollView>

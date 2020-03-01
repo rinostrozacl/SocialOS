@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressDialog loadingBar;
     private EditText UserEmail, UserPassword;
     private Button bto_login;
+    //private  Button bt_creacion_cta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,10 +82,11 @@ public class LoginActivity extends AppCompatActivity {
     private void InitializeFields() {
         UserEmail = (EditText) findViewById(R.id.username);
         UserPassword = (EditText) findViewById(R.id.password);
+
         loadingBar = new ProgressDialog(this);
     }
 
-    private void SendUserToMainActivity() {
+ private void SendUserToMainActivity() {
         Intent mainIntent = new Intent(LoginActivity.this, MainActivityChat.class);
         mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(mainIntent);

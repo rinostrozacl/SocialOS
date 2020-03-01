@@ -31,7 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivityChat extends AppCompatActivity {
 
-    private androidx.appcompat.widget.Toolbar mToolbar;
+    private Toolbar mToolbar;
     private ViewPager myViewPager;
     private TabLayout myTabLayout;
     private TabsAccessorAdapter myTabsAccessorAdapter;
