@@ -103,7 +103,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 else
                                     {
                                         String message=task.getException().toString();
-                                        Toast.makeText(RegisterActivity.this, "Corrija el Formato de su Correo Electronico", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(RegisterActivity.this, "Corrija el Formato de su Correo Electronico"+message, Toast.LENGTH_SHORT).show();
                                         loadingBar.dismiss();
                                     }
 

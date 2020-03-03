@@ -21,12 +21,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".RegisterActivity"></activity>
+        <activity
+            android:name=".ResetPasswordActivity"
+            android:label="Restablecer Cuenta"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity android:name=".RegisterActivity" />
         <activity android:name=".chatcomunal.SettingsActivity" />
         <activity android:name=".chatcomunal.GroupChatActivity" />
         <activity android:name=".chatcomunal.ChatsFragment" />
         <activity android:name=".chatcomunal.GroupsFragment" />
-        <activity android:name=".chatcomunal.MainActivityChat"></activity>
+        <activity android:name=".chatcomunal.MainActivityChat" />
         <activity android:name=".LoginActivity" />
         <activity
             android:name=".MainActivity"
