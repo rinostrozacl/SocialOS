@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -26,7 +27,8 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressDialog loadingBar;
     private EditText UserEmail, UserPassword;
     private Button bto_login;
-    //private  Button bt_creacion_cta;
+    private TextView ForgetPasswordLink;
+    private Button  bt_registro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +37,6 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         bto_login = findViewById(R.id.bt_login);
         InitializeFields();
-
         mAuth = FirebaseAuth.getInstance();
         bto_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +45,23 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
+        bt_registro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SendUserToRegisterActivity();
+
+            }
+        });
+
+    }
+
+    private void InitializeFields() {
+        UserEmail = (EditText) findViewById(R.id.username);
+        UserPassword = (EditText) findViewById(R.id.password);
+        ForgetPasswordLink=(TextView) findViewById(R.id.ForgetPasswordLink);
+        bt_registro=(Button)findViewById(R.id.bt_Registrarme);
+        loadingBar = new ProgressDialog(this);
     }
 
 
@@ -79,18 +97,16 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void InitializeFields() {
-        UserEmail = (EditText) findViewById(R.id.username);
-        UserPassword = (EditText) findViewById(R.id.password);
-
-        loadingBar = new ProgressDialog(this);
-    }
-
  private void SendUserToMainActivity() {
         Intent mainIntent = new Intent(LoginActivity.this, MainActivityChat.class);
         mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(mainIntent);
         finish();
+    }
+
+    private void SendUserToRegisterActivity() {
+        Intent registerIntent =new Intent(LoginActivity.this, RegisterActivity.class);
+        startActivity(registerIntent);
     }
 }
 
