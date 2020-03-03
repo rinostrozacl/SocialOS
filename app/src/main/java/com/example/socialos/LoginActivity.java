@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressDialog loadingBar;
     private EditText UserEmail, UserPassword;
     private Button bto_login;
-    private TextView ForgetPasswordLink;
+    private TextView forgetPasswordLink;
     private Button  bt_registro;
 
     @Override
@@ -36,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         mAuth = FirebaseAuth.getInstance();
         bto_login = findViewById(R.id.bt_login);
+        forgetPasswordLink=findViewById(R.id.ForgetPasswordLink);
         InitializeFields();
         mAuth = FirebaseAuth.getInstance();
         bto_login.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +46,12 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        forgetPasswordLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SendUserResetPasswordActivity();
+            }
+        });
 
         bt_registro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
     private void InitializeFields() {
         UserEmail = (EditText) findViewById(R.id.username);
         UserPassword = (EditText) findViewById(R.id.password);
-        ForgetPasswordLink=(TextView) findViewById(R.id.ForgetPasswordLink);
+        forgetPasswordLink=(TextView) findViewById(R.id.ForgetPasswordLink);
         bt_registro=(Button)findViewById(R.id.bt_Registrarme);
         loadingBar = new ProgressDialog(this);
     }
@@ -108,6 +115,13 @@ public class LoginActivity extends AppCompatActivity {
         Intent registerIntent =new Intent(LoginActivity.this, RegisterActivity.class);
         startActivity(registerIntent);
     }
+
+    private void SendUserResetPasswordActivity() {
+        Intent ResetPassword =new Intent(LoginActivity.this, ResetPasswordActivity.class);
+        startActivity(ResetPassword);
+    }
+
+
 }
 
 
