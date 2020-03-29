@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.bt_watch).setOnClickListener(this);
         findViewById(R.id.bt_whatsapp).setOnClickListener(this);
         findViewById(R.id.bt_wifi).setOnClickListener(this);
-       // findViewById(R.id.bt_playstore).setOnClickListener(this);
+        findViewById(R.id.app_list).setOnClickListener(this);
         //findViewById(R.id.bt_chat).setOnClickListener(this);
 
 
@@ -95,10 +95,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.bt_youtube: //german
                 startActivity(openYoutube());
                 break;
-
+            case R.id.app_list:
+                startActivity(openApps());
+                break;
             case R.id.bt_chat://Daniel
                 Intent intent2 = new Intent(v.getContext(), MainActivityChat.class);
                 startActivityForResult(intent2, 0);
+                break;
         }
 
 
@@ -155,13 +158,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-    public void openApps(View view) {
+    public Intent openApps() {
         try {
             Intent intent = new Intent(this, AppListActivity.class);
-            startActivity(intent);
+            return(intent);
         } catch (Exception e) {
             Toast.makeText(MainActivity.this, "Ha Ocurrido un Error", Toast.LENGTH_SHORT).show();
-            // new Intent(Intent.ACTION_DOCK_EVENT);//abrir conexiones
+            return new Intent(Intent.ACTION_DOCK_EVENT);//abrir conexiones
         }
     }
 

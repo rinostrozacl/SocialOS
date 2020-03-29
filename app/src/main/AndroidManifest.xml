@@ -25,7 +25,6 @@
             android:name=".ResetPasswordActivity"
             android:label="Restablecer Cuenta"
             android:theme="@style/AppTheme.NoActionBar">
-
         </activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".chatcomunal.SettingsActivity" />
